@@ -1,7 +1,7 @@
 # This file is exec'd from settings.py, so it has access to and can
 # modify all the variables in settings.py.
 
-DEBUG = True
+DEBUG = False
 
 # Make these unique, and don't share it with anybody.
 SECRET_KEY = "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3"
@@ -25,7 +25,7 @@ DATABASES = {
 }
 
 # Allowed development hosts
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "::1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","alexgreen-eg.herokuapp.com", "::1"]
 
 ###################
 # DEPLOY SETTINGS #
@@ -34,16 +34,16 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "::1"]
 # These settings are used by the default fabfile.py provided.
 # Check fabfile.py for defaults.
 
-FABRIC = {
-    "DEPLOY_TOOL": "git",  # Deploy with "git", "hg", or "rsync"
-    "REPO_URL":"https://github.com/khaled9912/alexgreen.git",
-    "SSH_USER": "alexgreen",  # VPS SSH username
-    "HOSTS": [""],  # The IP address of your VPS
-    "DOMAINS": [""],  # Will be used as ALLOWED_HOSTS in production
-    "REQUIREMENTS_PATH": "requirements.txt",  # Project's pip requirements
-    "LOCALE": "en_US.UTF-8",  # Should end with ".UTF-8"
-    "DB_PASS": "",  # Live database password
-    "ADMIN_PASS": "",  # Live admin user password
-    "SECRET_KEY": "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3",
-    "NEVERCACHE_KEY": "#_j9)qpfw_ems2(qt^8pjviw*cdg5@fr)^r1of!6zg=-(7bg*9",
-}
+# FABRIC = {
+#     "DEPLOY_TOOL": "git",  # Deploy with "git", "hg", or "rsync"
+#     "REPO_URL":"https://github.com/khaled9912/alexgreen.git",
+#     "SSH_USER": "alexgreen",  # VPS SSH username
+#     "HOSTS": [""],  # The IP address of your VPS
+#     "DOMAINS": [""],  # Will be used as ALLOWED_HOSTS in production
+#     "REQUIREMENTS_PATH": "requirements.txt",  # Project's pip requirements
+#     "LOCALE": "en_US.UTF-8",  # Should end with ".UTF-8"
+#     "DB_PASS": "",  # Live database password
+#     "ADMIN_PASS": "",  # Live admin user password
+#     "SECRET_KEY": "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3",
+#     "NEVERCACHE_KEY": "#_j9)qpfw_ems2(qt^8pjviw*cdg5@fr)^r1of!6zg=-(7bg*9",
+# }
