@@ -117,7 +117,6 @@ Pyphen==0.9.5
 python-dateutil==2.8.1
 python-json-logger==0.1.11
 python-magic==0.4.15
-python-magic-binary==0.4.14
 pytimeparse==1.1.8
 pytz==2020.1
 razorpay==1.2.0
