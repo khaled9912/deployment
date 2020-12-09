@@ -150,7 +150,7 @@ DATABASES = {
         # Not used with sqlite3.
         "USER": "postgres",
         # Not used with sqlite3.
-        "PASSWORD": "123698745@KH",
+        "PASSWORD": "123698745@KHM",
         # Set to empty string for localhost. Not used with sqlite3.
         "HOST": "localhost",
         # Set to empty string for default. Not used with sqlite3.
