@@ -7,6 +7,73 @@ from django.utils.translation import ugettext_lazy as _
 
 
 ######################
+# CARTRIDGE SETTINGS #
+######################
+
+# The following settings are already defined in cartridge.shop.defaults
+# with default values, but are common enough to be put here, commented
+# out, for conveniently overriding. Please consult the settings
+# documentation for a full list of settings Cartridge implements:
+# http://cartridge.jupo.org/configuration.html#default-settings
+
+# Sequence of available credit card types for payment.
+# SHOP_CARD_TYPES = ("Mastercard", "Visa", "Diners", "Amex")
+
+# Setting to turn on featured images for shop categories. Defaults to False.
+# SHOP_CATEGORY_USE_FEATURED_IMAGE = True
+
+# If True, the checkout process is split into separate
+# billing/shipping and payment steps.
+# SHOP_CHECKOUT_STEPS_SPLIT = True
+
+# If True, the checkout process has a final confirmation step before
+# completion.
+# SHOP_CHECKOUT_STEPS_CONFIRMATION = True
+
+# Controls the formatting of monetary values accord to the locale
+# module in the python standard library. If an empty string is
+# used, will fall back to the system's locale.
+# SHOP_CURRENCY_LOCALE = ""
+
+# Dotted package path and name of the function that
+# is called on submit of the billing/shipping checkout step. This
+# is where shipping calculation can be performed and set using the
+# function ``cartridge.shop.utils.set_shipping``.
+# SHOP_HANDLER_BILLING_SHIPPING = \
+#                       "cartridge.shop.checkout.default_billship_handler"
+
+# Dotted package path and name of the function that
+# is called once an order is successful and all of the order
+# object's data has been created. This is where any custom order
+# processing should be implemented.
+# SHOP_HANDLER_ORDER = "cartridge.shop.checkout.default_order_handler"
+
+# Dotted package path and name of the function that
+# is called on submit of the payment checkout step. This is where
+# integration with a payment gateway should be implemented.
+# SHOP_HANDLER_PAYMENT = "cartridge.shop.checkout.default_payment_handler"
+
+# Sequence of value/name pairs for order statuses.
+# SHOP_ORDER_STATUS_CHOICES = (
+#     (1, "Unprocessed"),
+#     (2, "Processed"),
+# )
+
+# Sequence of value/name pairs for types of product options,
+# eg Size, Colour. NOTE: Increasing the number of these will
+# require database migrations!
+# SHOP_OPTION_TYPE_CHOICES = (
+#     (1, "Size"),
+#     (2, "Colour"),
+# )
+
+# Sequence of indexes from the SHOP_OPTION_TYPE_CHOICES setting that
+# control how the options should be ordered in the admin,
+# eg for "Colour" then "Size" given the above:
+# SHOP_OPTION_ADMIN_ORDER = (2, 1)
+
+
+######################
 # MEZZANINE SETTINGS #
 ######################
 
@@ -22,6 +89,8 @@ from django.utils.translation import ugettext_lazy as _
 # ADMIN_MENU_ORDER = (
 #     ("Content", ("pages.Page", "blog.BlogPost",
 #        "generic.ThreadedComment", (_("Media Library"), "media-library"),)),
+#     (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode",
+#        "shop.Sale", "shop.Order")),
 #     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
 #     ("Users", ("auth.User", "auth.Group",)),
 # )
@@ -92,9 +161,7 @@ USE_MODELTRANSLATION = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost","alexgreen-eg-master.zeet.app", "127.0.0.1"]
-
-
+ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -142,21 +209,20 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 # DATABASES #
 #############
 
-
 DATABASES = {
     "default": {
-        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.",
         # DB name or path to database file if using sqlite3.
-        "NAME": "postgres",
+        "NAME": "",
         # Not used with sqlite3.
-        "USER": "postgres",
+        "USER": "",
         # Not used with sqlite3.
-        "PASSWORD": "123698745@KHM",
+        "PASSWORD": "",
         # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "khaled9912-postgres-production",
+        "HOST": "",
         # Set to empty string for default. Not used with sqlite3.
-        "PORT": "5432",
+        "PORT": "",
     }
 }
 
@@ -223,7 +289,7 @@ TEMPLATES = [
                 "mezzanine.template.loaders.host_themes.Loader",
                 "django.template.loaders.filesystem.Loader",
                 "django.template.loaders.app_directories.Loader",
-            ]
+            ],
         },
     },
 ]
@@ -250,6 +316,7 @@ INSTALLED_APPS = (
     "mezzanine.core",
     "mezzanine.generic",
     "mezzanine.pages",
+    "cartridge.shop",
     "mezzanine.blog",
     "mezzanine.forms",
     "mezzanine.galleries",
@@ -257,13 +324,13 @@ INSTALLED_APPS = (
     # "mezzanine.accounts",
 )
 
+
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Uncomment if using internationalisation or localisation
     # 'django.middleware.locale.LocaleMiddleware',
@@ -274,6 +341,7 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    "cartridge.shop.middleware.ShopMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",

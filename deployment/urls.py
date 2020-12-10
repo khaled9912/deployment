@@ -4,12 +4,11 @@ from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.i18n import set_language
-
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-# Uncomment to use blog as home page. See also urlpatterns section below.
-# from mezzanine.blog import views as blog_views
+from cartridge.shop.views import order_history
+
 
 admin.autodiscover()
 
@@ -29,6 +28,11 @@ if settings.USE_MODELTRANSLATION:
     ]
 
 urlpatterns += [
+
+    # Cartridge URLs.
+    url("^shop/", include("cartridge.shop.urls")),
+    url("^account/orders/$", order_history, name="shop_order_history"),
+
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 
@@ -66,7 +70,7 @@ urlpatterns += [
     # page tree in the admin if it was installed.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", blog_views.blog_post_list, name="home"),
+    # url("^$", mezzanine.blog.views.blog_post_list, name="home"),
 
     # MEZZANINE'S URLS
     # ----------------
@@ -95,7 +99,7 @@ urlpatterns += [
     # Note that for any of the various homepage patterns above, you'll
     # need to use the ``SITE_PREFIX`` setting as well.
 
-    # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
+    # url("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
 
 ]
 

@@ -1,51 +1,52 @@
 # This file is exec'd from settings.py, so it has access to and can
 # modify all the variables in settings.py.
 
-DEBUG = False
+# If this file is changed in development, the development server will
+# have to be manually restarted because changes will not be noticed
+# immediately.
+
+DEBUG = True
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3"
-NEVERCACHE_KEY = "#_j9)qpfw_ems2(qt^8pjviw*cdg5@fr)^r1of!6zg=-(7bg*9"
+SECRET_KEY = "c-9s&-s*(4%iwy#om!i(cb__*wf^wplyn$#xza-8-pc*r8wv*9"
+NEVERCACHE_KEY = "l#_%7thjvf6!$wnlt(oe*-dlleh2owwwao6%v5qpo$hgy^+8y&"
 
 DATABASES = {
     "default": {
         # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "postgres",
+        "NAME": "dev.db",
         # Not used with sqlite3.
-        "USER": "postgres",
+        "USER": "",
         # Not used with sqlite3.
-        "PASSWORD": "123698745@KHM",
+        "PASSWORD": "",
         # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "khaled9912-postgres-production",
+        "HOST": "",
         # Set to empty string for default. Not used with sqlite3.
-        "PORT": "5432",
+        "PORT": "",
     }
 }
-
-# Allowed development hosts
-ALLOWED_HOSTS = ["localhost", "127.0.0.1","alexgreen-eg-master.zeet.app", "::1"]
-
-
 
 ###################
 # DEPLOY SETTINGS #
 ###################
 
+# Domains for public site
+# ALLOWED_HOSTS = [""]
+
 # These settings are used by the default fabfile.py provided.
 # Check fabfile.py for defaults.
 
 # FABRIC = {
-#     "DEPLOY_TOOL": "git",  # Deploy with "git", "hg", or "rsync"
-#     "REPO_URL":"https://github.com/khaled9912/alexgreen.git",
-#     "SSH_USER": "alexgreen",  # VPS SSH username
+#     "DEPLOY_TOOL": "rsync",  # Deploy with "git", "hg", or "rsync"
+#     "SSH_USER": "",  # VPS SSH username
 #     "HOSTS": [""],  # The IP address of your VPS
-#     "DOMAINS": [""],  # Will be used as ALLOWED_HOSTS in production
+#     "DOMAINS": ALLOWED_HOSTS,  # Edit domains in ALLOWED_HOSTS
 #     "REQUIREMENTS_PATH": "requirements.txt",  # Project's pip requirements
 #     "LOCALE": "en_US.UTF-8",  # Should end with ".UTF-8"
 #     "DB_PASS": "",  # Live database password
 #     "ADMIN_PASS": "",  # Live admin user password
-#     "SECRET_KEY": "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3",
-#     "NEVERCACHE_KEY": "#_j9)qpfw_ems2(qt^8pjviw*cdg5@fr)^r1of!6zg=-(7bg*9",
+#     "SECRET_KEY": SECRET_KEY,
+#     "NEVERCACHE_KEY": NEVERCACHE_KEY,
 # }
