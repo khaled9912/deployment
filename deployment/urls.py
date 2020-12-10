@@ -4,9 +4,10 @@ from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.i18n import set_language
-
+from django.views.static import serve
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
+
 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
@@ -21,6 +22,8 @@ urlpatterns = i18n_patterns(
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
     url("^admin/", include(admin.site.urls)),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 )
 
 if settings.USE_MODELTRANSLATION:
