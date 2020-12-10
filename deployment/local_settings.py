@@ -1,7 +1,7 @@
 # This file is exec'd from settings.py, so it has access to and can
 # modify all the variables in settings.py.
 
-DEBUG = True
+DEBUG = False
 
 # Make these unique, and don't share it with anybody.
 SECRET_KEY = "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3"
