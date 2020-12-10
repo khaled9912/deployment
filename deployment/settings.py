@@ -92,8 +92,7 @@ USE_MODELTRANSLATION = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-# ALLOWED_HOSTS = ["localhost","alexgreen-eg-master.zeet.app", "127.0.0.1"]
-ALLOWED_HOSTS = ["localhost","alexgreen-egg.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost","alexgreen-eg-master.zeet.app", "127.0.0.1"]
 
 
 
@@ -121,7 +120,7 @@ LANGUAGES = (
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = False
+DEBUG = True
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
