@@ -25,7 +25,7 @@ DATABASES = {
 }
 
 # Allowed development hosts
-ALLOWED_HOSTS = ["localhost","alexgreen-eg.herokuapp", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost","alexgreen-eg.zeet.app", "127.0.0.1"]
 
 
 ###################
