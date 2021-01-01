@@ -2,6 +2,7 @@
 *.pyo
 *.db
 /local_settings.py
+static
 .DS_Store
 .coverage
 
