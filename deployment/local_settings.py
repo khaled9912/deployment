@@ -7,22 +7,22 @@ DEBUG = False
 SECRET_KEY = "9i-0s1rr8#sp&(j$0n3t8s*-t23g0!i9&rs)1=!h(cirx3b$x3"
 NEVERCACHE_KEY = "#_j9)qpfw_ems2(qt^8pjviw*cdg5@fr)^r1of!6zg=-(7bg*9"
 
-# DATABASES = {
-#     "default": {
-#         # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         # DB name or path to database file if using sqlite3.
-#         "NAME": "alexgreen",
-#         # Not used with sqlite3.
-#         "USER": "khaledmourad",
-#         # Not used with sqlite3.
-#         "PASSWORD": "passwordpostgres",
-#         # Set to empty string for localhost. Not used with sqlite3.
-#         "HOST": "database-1.cqutv8fmtcxv.us-east-2.rds.amazonaws.com",
-#         # Set to empty string for default. Not used with sqlite3.
-#         "PORT": "5432",
-#     }
-# }
+DATABASES = {
+    "default": {
+        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        # DB name or path to database file if using sqlite3.
+        "NAME": "alexgreen",
+        # Not used with sqlite3.
+        "USER": "khaledmourad",
+        # Not used with sqlite3.
+        "PASSWORD": "passwordpostgres",
+        # Set to empty string for localhost. Not used with sqlite3.
+        "HOST": "database-1.cqutv8fmtcxv.us-east-2.rds.amazonaws.com",
+        # Set to empty string for default. Not used with sqlite3.
+        "PORT": "5432",
+    }
+}
 
 # Allowed development hosts
 ALLOWED_HOSTS = ["alexgreen-eg.herokuapp.com","alexgreen-eg.zeet.app", "127.0.0.1"]
