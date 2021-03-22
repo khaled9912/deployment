@@ -12,13 +12,13 @@ DATABASES = {
         # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         # DB name or path to database file if using sqlite3.
-        "NAME": "alexgreen",
+        "NAME": "postgres",
         # Not used with sqlite3.
-        "USER": "khaled",
+        "USER": "postgres",
         # Not used with sqlite3.
-        "PASSWORD": "123698745",
+        "PASSWORD": "alexgreen",
         # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "database-2.cqutv8fmtcxv.us-east-2.rds.amazonaws.com",
+        "HOST": "database-1.ca64zl3bqjhd.us-east-2.rds.amazonaws.com",
         # Set to empty string for default. Not used with sqlite3.
         "PORT": "5432",
     }
